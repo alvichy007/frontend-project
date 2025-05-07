@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>CampusConnect</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- Navbar -->
+  <header class="navbar">
+    <div class="logo">CampusConnect</div>
+    <input type="text" class="search" placeholder="Search posts or events...">
+    <div class="nav-icons">
+      <span onclick="goToNotifications()">🔔</span>
+      <span onclick="goToProfile()">👤</span>
+    </div>
+  </header>
+
+  <!-- Sidebar -->
+  <aside class="sidebar">
+    <ul>
+      <li onclick="navigateTo('index.html')">🏠 Home</li>
+      <li onclick="navigateTo('groups.html')">👥 Groups</li>
+      <li onclick="navigateTo('events.html')">📅 Events</li>
+      <li onclick="navigateTo('polls.html')">🗳️ Polls</li>
+      <li onclick="navigateTo('profile.html')">👤 Profile</li>
+    </ul>
+  </aside>
+
+  <!-- Feed -->
+  <section class="feed">
+    <!-- Post -->
+    <div class="post" id="post1">
+      <div class="post-header">
+        <img src="assets/images/campus.jpg" alt="User" class="avatar">
+        <div>
+          <p class="username">John Doe</p>
+          <p class="timestamp">2 hours ago</p>
+        </div>
+      </div>
+      <div class="post-content">
+        <p>This is our first welcome post to CampusConnect! 🎉</p>
+        <img src="assets/images/campus.jpg" alt="Post Image">
+        <p class="tags">#announcement #welcome</p>
+      </div>
+      <div class="post-actions">
+        <button onclick="likePost('post1')">👍 Like (<span id="like-post1">0</span>)</button>
+        <button onclick="commentPost('post1')">💬 Comment</button>
+        <button onclick="sharePost('post1')">🔗 Share</button>
+      </div>
+      <div class="comments" id="comments-post1">
+        <!-- Comments will appear here -->
+      </div>
+    </div>
+  </section>
+  <!-- Group List -->
+  <main class="group-container">
+    <div class="group-card">
+      <h2>Dept. of CSE, Campus A</h2>
+      <p>Official group for all CSE students of Campus A.</p>
+      <button onclick="joinGroup('CSE-A')">Join Group</button>
+    </div>
+
+    <div class="group-card">
+      <h2>Electronics Club - Campus B</h2>
+      <p>Discussion board for electronics projects and ideas.</p>
+      <button onclick="joinGroup('EC-B')">Join Group</button>
+    </div>
+
+    <div class="group-card">
+      <h2>Sports Club - Campus C</h2>
+      <p>Updates and events related to campus sports.</p>
+      <button onclick="joinGroup('Sports-C')">Join Group</button>
+    </div>
+    <main class="event-container">
+        <div class="event-card">
+          <h3>AI Seminar - Campus A</h3>
+          <p><strong>Date:</strong> 2025-05-15</p>
+          <p><strong>Location:</strong> Auditorium 3, Campus A</p>
+          <p><strong>Description:</strong> A seminar on the impact of AI on education and job markets.</p>
+          <button onclick="interested('AI Seminar')">Interested</button>
+          <button onclick="registerEvent('AI Seminar')">Register</button>
+        </div>
+    
+        <div class="event-card">
+          <h3>Hackathon 2025</h3>
+          <p><strong>Date:</strong> 2025-06-01 to 2025-06-03</p>
+          <p><strong>Location:</strong> Tech Park, Campus B</p>
+          <p><strong>Description:</strong> 48-hour coding challenge for developers and designers.</p>
+          <button onclick="interested('Hackathon')">Interested</button>
+          <button onclick="registerEvent('Hackathon')">Register</button>
+        </div>
+        <!-- Profile Section -->
+  <main class="profile-container">
+    <h2>My Profile</h2>
+    <div class="profile-card">
+      <img src="assets/images/avatar.png" alt="User Avatar" class="profile-pic">
+      <form id="profileForm">
+        <label>Name: <input type="text" value="John Doe" /></label>
+        <label>Bio: <textarea>Web developer & CSE Student</textarea></label>
+        <label>Links: <input type="text" value="https://github.com/johndoe" /></label>
+        <label>Education: <input type="text" value="BSc in CSE, Campus A" /></label>
+        <label>Birth Date: <input type="date" value="2001-06-15" /></label>
+        <div class="profile-buttons">
+          <button type="button" onclick="updateProfile()">Update Profile</button>
+          <button type="button" onclick="deleteAccount()">Delete Account</button>
+        </div>
+      </form>
+    </div>
+  </main>
+   <!-- Poll Section -->
+   <main class="poll-container">
+    <h2>Active Poll</h2>
+    <div class="poll-card">
+      <p class="poll-question">What type of tech workshop should we host next month?</p>
+      <ul class="poll-options">
+        <li><label><input type="radio" name="poll" value="AI" /> AI & Machine Learning</label></li>
+        <li><label><input type="radio" name="poll" value="Web" /> Web Development</label></li>
+        <li><label><input type="radio" name="poll" value="Cyber" /> Cybersecurity</label></li>
+        <li><label><input type="radio" name="poll" value="DSA" /> DSA & Competitive Programming</label></li>
+      </ul>
+      <p class="poll-deadline">Deadline: <strong>May 15, 2025</strong></p>
+      <button onclick="submitVote()">Submit Vote</button>
+    </div>
+  </main>
+  <main class="event-container">
+    <h2>Upcoming Events</h2>
+
+    <div class="event-card">
+      <h3>AI & Future Tech Seminar</h3>
+      <p><strong>Date:</strong> May 20–21, 2025</p>
+      <p><strong>Location:</strong> Main Auditorium, Campus A</p>
+      <p>Join us for a two-day seminar on AI trends, applications, and ethics. Open for all departments.</p>
+      <button onclick="markInterested('ai-tech')">Interested</button>
+      <button onclick="registerEvent('ai-tech')">Register</button>
+    </div>
+
+    <div class="event-card">
+      <h3>Coding Bootcamp (Group Centered)</h3>
+      <p><strong>Date:</strong> May 25, 2025</p>
+      <p><strong>Location:</strong> Lab 203, CSE Building</p>
+      <p>Intensive hands-on coding session for Campus CSE group members. Seats limited.</p>
+      <button onclick="markInterested('bootcamp')">Interested</button>
+      <button onclick="registerEvent('bootcamp')">Register</button>
+    </div>
+  </main>
+  <main class="message-area">
+    <aside class="chat-list">
+      <h3>Messages</h3>
+      <ul>
+        <li onclick="loadChat('john')">John Doe</li>
+        <li onclick="loadChat('jane')">Jane Smith</li>
+        <li onclick="loadChat('club')">CSE Club</li>
+      </ul>
+    </aside>
+
+    <section class="chat-window">
+      <div class="chat-header" id="chatTitle">Select a chat</div>
+      <div class="chat-messages" id="chatMessages">
+        <!-- Chat content appears here -->
+      </div>
+      <div class="chat-input">
+        <input type="text" id="messageInput" placeholder="Type your message..." />
+        <button onclick="sendMessage()">Send</button>
+      </div>
+    </section>
+  </main>
+  <main class="calendar-container">
+    <h2>Event Calendar</h2>
+    <div id="calendar"></div>
+  </main>
+
+
+  <script src="script.js"></script>
+</body>
+</html>
